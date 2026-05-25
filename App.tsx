@@ -27,7 +27,7 @@ const NAV_TEXT = {
     settings: 'Settings',
     logout: 'Logout',
     report: 'Report Details',
-    userStatus: 'Premium Member',
+    userStatus: 'Member',
     close: 'Close',
     resetTitle: 'System Hard Reset',
     resetData: 'Clear Diagnostic History',
@@ -48,7 +48,7 @@ const NAV_TEXT = {
     settings: 'Pengaturan',
     logout: 'Keluar',
     report: 'Detail Laporan',
-    userStatus: 'Anggota Premium',
+    userStatus: 'Anggota',
     close: 'Tutup',
     resetTitle: 'Reset Sistem Menyeluruh',
     resetData: 'Hapus Riwayat Diagnosa',
@@ -816,9 +816,11 @@ const AppContent: React.FC = () => {
             >
               {/* Logo / Title */}
               <div className="flex flex-col items-center text-center mb-8">
-                <div className="w-12 h-12 bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-500/20 mb-3 hover:rotate-6 transition-transform">
-                  F
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Financial Health logo"
+                  className="w-12 h-12 rounded-2xl object-contain shadow-lg shadow-blue-500/20 mb-3 hover:rotate-6 transition-transform"
+                />
                 <h2 className="text-xl font-black tracking-tight leading-none mb-1">
                   Financial<span className="text-blue-655 font-black text-blue-600">Health</span>
                 </h2>
@@ -1092,7 +1094,7 @@ const AppContent: React.FC = () => {
             </motion.div>
           </main>
 
-          <footer className={`py-6 text-center text-[10px] font-mono uppercase tracking-widest ${
+          <footer className={`w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 py-6 text-center text-[10px] font-mono uppercase tracking-widest ${
             isDark ? 'text-slate-600' : 'text-slate-400'
           }`}>
             © {new Date().getFullYear()} Contech ID. Secured Financial Diagnostic Environment.
@@ -1108,9 +1110,11 @@ const AppContent: React.FC = () => {
               
               {/* Brand Logo */}
               <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => setView('landing')}>
-                <div className="w-10 h-10 bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-extrabold shadow-md shadow-blue-500/20">
-                  F
-                </div>
+                <img
+                  src="/logo.png"
+                  alt="Financial Health logo"
+                  className="w-10 h-10 rounded-xl object-contain shadow-md shadow-blue-500/20"
+                />
                 <div className="flex flex-col">
                   <span className="font-extrabold text-lg tracking-tight leading-none">
                     Financial<span className="text-blue-600 font-extrabold">Health</span>
@@ -1815,17 +1819,19 @@ const AppContent: React.FC = () => {
 
           {/* Premium App Mode Footer */}
           <footer className="no-print mt-auto bg-slate-900 border-t border-slate-800 text-slate-400">
-            <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 py-12">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
                 
                 {/* Branding widget */}
-                <div className="md:col-span-4 space-y-4">
+                <div className="md:col-span-6 lg:col-span-4 space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-base shadow-sm">
-                      F
-                    </div>
+                    <img
+                      src="/logo.png"
+                      alt="Financial Health logo"
+                      className="w-8 h-8 rounded-lg object-contain shadow-sm"
+                    />
                     <span className="font-extrabold text-base tracking-tight text-white">
-                      Financial<span className="text-blue-500 font-extrabold">Health</span> App
+                      Financial<span className="text-blue-500 font-extrabold">Health</span>
                     </span>
                   </div>
                   
@@ -1879,7 +1885,7 @@ const AppContent: React.FC = () => {
                 </div>
 
                 {/* Core Navigation Anchors (Adjusted to App mode setView coordinates) */}
-                <div className="md:col-span-4 space-y-3">
+                <div className="md:col-span-3 lg:col-span-2 space-y-3">
                   <h4 className="font-bold text-white text-xs tracking-wider uppercase font-mono">
                     {FOOTER_TEXT[lang].navHeader}
                   </h4>
@@ -1908,7 +1914,7 @@ const AppContent: React.FC = () => {
                 </div>
 
                 {/* Legal Popups resources */}
-                <div className="md:col-span-4 space-y-3">
+                <div className="md:col-span-3 lg:col-span-3 space-y-3">
                   <h4 className="font-bold text-white text-xs tracking-wider uppercase font-mono">
                     {FOOTER_TEXT[lang].legalHeader}
                   </h4>
@@ -1940,9 +1946,56 @@ const AppContent: React.FC = () => {
                   </ul>
                 </div>
 
+                {/* App operational summary */}
+                <div className="md:col-span-12 lg:col-span-3">
+                  <div className="border border-slate-800 bg-slate-950/40 p-5 rounded-2xl space-y-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <h4 className="font-bold text-white text-xs tracking-wider uppercase font-mono">
+                          {lang === 'id' ? 'Ringkasan Platform' : 'Platform Snapshot'}
+                        </h4>
+                        <p className="text-[10px] text-slate-500 mt-1 font-semibold">
+                          {lang === 'id' ? 'Status fitur utama aplikasi.' : 'Primary app feature status.'}
+                        </p>
+                      </div>
+                      <ShieldCheck size={20} className="text-blue-500 shrink-0" />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+                      <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                        <LayoutDashboard size={15} className="text-blue-400 shrink-0" />
+                        <div>
+                          <div className="text-xs font-black text-white">{nt.diagnostic}</div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                            {lang === 'id' ? 'Analisis utama' : 'Core analysis'}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                        <Activity size={15} className="text-emerald-400 shrink-0" />
+                        <div>
+                          <div className="text-xs font-black text-white">{nt.stressTest}</div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                            {lang === 'id' ? 'Skenario risiko' : 'Risk scenarios'}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                        <TrendingUp size={15} className="text-amber-400 shrink-0" />
+                        <div>
+                          <div className="text-xs font-black text-white">{nt.methodology}</div>
+                          <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                            {lang === 'id' ? 'Benchmark rasio' : 'Ratio benchmark'}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
-              <div className="mt-8 pt-6 border-t border-slate-800 text-center text-[10px] text-slate-500 font-mono">
+              <div className="mt-12 pt-8 border-t border-slate-800 text-center text-[10px] text-slate-500 font-mono">
                 <p>&copy; {new Date().getFullYear()} Contech ID. All rights reserved. Precision GAAP Diagnostics.</p>
               </div>
             </div>

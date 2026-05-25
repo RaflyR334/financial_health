@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  ArrowRight, 
-  Play, 
-  Pause, 
+import {
+  ArrowRight,
+  Play,
+  Pause,
   RotateCcw,
-  CheckCircle2, 
-  AlertTriangle, 
-  Users, 
-  ShieldAlert, 
-  Sparkles, 
-  Coins, 
-  TrendingUp, 
-  X, 
-  FileText, 
-  Shield, 
-  HelpCircle, 
+  CheckCircle2,
+  AlertTriangle,
+  Users,
+  ShieldAlert,
+  Sparkles,
+  Coins,
+  TrendingUp,
+  X,
+  FileText,
+  Shield,
+  HelpCircle,
   MessageSquare,
   Volume2,
   VolumeX,
@@ -57,7 +57,7 @@ const L_TEXT = {
     demoMenu: 'Live Demo',
     testimonialMenu: 'Testimonials',
     contactMenu: 'Connect',
-    
+
     // Problem Section
     probTitle: 'The Fatal Roadblocks',
     probSubtitle: 'Why do most individuals and small companies struggle financially? Here are the four underlying causes of fiscal crisis.',
@@ -450,7 +450,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             return 100;
           }
           const next = prev + 1.5;
-          
+
           // Phase shifts based on progress percentages
           if (next > 1 && next < 35) {
             setSimStep(0);
@@ -459,7 +459,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
           } else if (next >= 70 && next < 100) {
             setSimStep(2);
           }
-          
+
           return next;
         });
       }, 50);
@@ -509,20 +509,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
   return (
     <div className={`relative min-h-screen transition-colors duration-500 overflow-x-hidden ${isDark ? 'bg-[#0b0f19] text-slate-100' : 'bg-[#fafbfc] text-[#0f172a]'}`}>
-      
+
       {/* Premium Autohide Navbar */}
-      <nav id="landing-navbar" className={`fixed top-0 left-0 w-full backdrop-blur-md border-b z-50 transition-all duration-300 transform ${
-        isDark ? 'bg-[#0b0f19]/80 border-slate-800 text-slate-100' : 'bg-white/80 border-slate-100 text-slate-900'
-      } ${
-        navVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-      }`}>
+      <nav id="landing-navbar" className={`fixed top-0 left-0 w-full backdrop-blur-md border-b z-50 transition-all duration-300 transform ${isDark ? 'bg-[#0b0f19]/80 border-slate-800 text-slate-100' : 'bg-white/80 border-slate-100 text-slate-900'
+        } ${navVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        }`}>
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
-          
+
           {/* Brand Logo */}
           <div className="flex items-center gap-3 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-10 h-10 bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-500 rounded-xl flex items-center justify-center text-white font-extrabold shadow-md shadow-blue-100">
-              F
-            </div>
+            <img
+              src="/logo.png"
+              alt="Financial Health logo"
+              className="w-10 h-10 rounded-xl object-contain shadow-md shadow-blue-100"
+            />
             <div className="flex flex-col">
               <span className={`font-extrabold text-xl tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-900'}`}>
                 Financial<span className="text-blue-600 font-extrabold">Health</span>
@@ -554,11 +554,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={toggleTheme}
-              className={`p-2 sm:p-2.5 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer ${
-                isDark 
-                  ? 'border-slate-800 bg-slate-900 text-amber-400 hover:text-amber-300 hover:bg-slate-800' 
+              className={`p-2 sm:p-2.5 rounded-full border transition-all duration-300 flex items-center justify-center cursor-pointer ${isDark
+                  ? 'border-slate-800 bg-slate-900 text-amber-400 hover:text-amber-300 hover:bg-slate-800'
                   : 'border-slate-200 bg-slate-50 text-slate-700 hover:text-slate-900 hover:bg-slate-100'
-              }`}
+                }`}
               title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
             >
               {isDark ? <Sun size={15} /> : <Moon size={15} />}
@@ -566,22 +565,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
             {/* Desktop-only Lang and Account utilities */}
             <div className="hidden sm:flex items-center gap-2">
-              <button 
+              <button
                 onClick={onToggleLang}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors text-xs font-bold cursor-pointer hover:scale-105 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping"></span>
                 {lang === 'en' ? 'ENGLISH' : 'INDONESIA'}
               </button>
-              
+
               {onLogin && (
-                <button 
+                <button
                   onClick={onLogin}
-                  className={`px-3.5 py-2 font-extrabold text-xs rounded-xl border transition-all duration-200 hover:scale-[1.02] cursor-pointer ${
-                    isDark 
-                      ? 'border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-800/80' 
+                  className={`px-3.5 py-2 font-extrabold text-xs rounded-xl border transition-all duration-200 hover:scale-[1.02] cursor-pointer ${isDark
+                      ? 'border-slate-800 bg-slate-900/60 text-slate-300 hover:text-white hover:bg-slate-800/80'
                       : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50 shadow-xs'
-                  }`}
+                    }`}
                 >
                   {lang === 'en' ? 'Sign In' : 'Masuk'}
                 </button>
@@ -589,7 +587,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </div>
 
             <div className="hidden lg:block">
-              <button 
+              <button
                 onClick={onSignUp}
                 className="relative px-5 py-2.5 font-bold text-sm rounded-xl overflow-hidden group shadow-lg transition-all border cursor-pointer bg-blue-600 border-blue-600 text-white shadow-blue-500/10 hover:shadow-blue-500/20"
               >
@@ -604,11 +602,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             {/* Premium Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer ${
-                isDark 
-                  ? 'border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800' 
+              className={`lg:hidden p-2 rounded-xl border transition-all duration-300 flex items-center justify-center cursor-pointer ${isDark
+                  ? 'border-slate-800 bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800'
                   : 'border-slate-200 bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50'
-              }`}
+                }`}
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -623,37 +620,36 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className={`lg:hidden w-full border-t overflow-hidden ${
-                isDark ? 'bg-[#0b0f19] border-slate-800 text-slate-100' : 'bg-white border-slate-100 text-slate-900'
-              }`}
+              className={`lg:hidden w-full border-t overflow-hidden ${isDark ? 'bg-[#0b0f19] border-slate-800 text-slate-100' : 'bg-white border-slate-100 text-slate-900'
+                }`}
             >
               <div className="px-6 py-6 flex flex-col gap-4">
-                <button 
-                  onClick={() => { scrollTo('features-section'); setMobileMenuOpen(false); }} 
+                <button
+                  onClick={() => { scrollTo('features-section'); setMobileMenuOpen(false); }}
                   className={`text-left text-sm font-bold py-2 border-b transition-colors ${isDark ? 'border-slate-850 text-slate-300 hover:text-blue-400' : 'border-slate-100 text-slate-600 hover:text-blue-600'}`}
                 >
                   {t.featuresMenu}
                 </button>
-                <button 
-                  onClick={() => { scrollTo('problems-solutions'); setMobileMenuOpen(false); }} 
+                <button
+                  onClick={() => { scrollTo('problems-solutions'); setMobileMenuOpen(false); }}
                   className={`text-left text-sm font-bold py-2 border-b transition-colors ${isDark ? 'border-slate-850 text-slate-300 hover:text-red-400' : 'border-slate-100 text-slate-600 hover:text-red-550'}`}
                 >
                   {t.problemMenu}
                 </button>
-                <button 
-                  onClick={() => { scrollTo('demo-preview'); setMobileMenuOpen(false); }} 
+                <button
+                  onClick={() => { scrollTo('demo-preview'); setMobileMenuOpen(false); }}
                   className={`text-left text-sm font-bold py-2 border-b transition-colors ${isDark ? 'border-slate-850 text-slate-300 hover:text-blue-400' : 'border-slate-100 text-slate-600 hover:text-blue-600'}`}
                 >
                   {t.demoMenu}
                 </button>
-                <button 
-                  onClick={() => { scrollTo('testimonials-section'); setMobileMenuOpen(false); }} 
+                <button
+                  onClick={() => { scrollTo('testimonials-section'); setMobileMenuOpen(false); }}
                   className={`text-left text-sm font-bold py-2 border-b transition-colors ${isDark ? 'border-slate-850 text-slate-300 hover:text-blue-400' : 'border-slate-100 text-slate-600 hover:text-blue-600'}`}
                 >
                   {t.testimonialMenu}
                 </button>
-                <button 
-                  onClick={() => { scrollTo('footer-anchor'); setMobileMenuOpen(false); }} 
+                <button
+                  onClick={() => { scrollTo('footer-anchor'); setMobileMenuOpen(false); }}
                   className={`text-left text-sm font-bold py-2 border-b transition-colors ${isDark ? 'border-slate-850 text-slate-300 hover:text-blue-400' : 'border-slate-100 text-slate-600 hover:text-blue-600'}`}
                 >
                   {t.contactMenu}
@@ -661,32 +657,30 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
                 {/* Mobile language & auth actions */}
                 <div className="flex flex-wrap items-center gap-3 mt-4 pt-2">
-                  <button 
+                  <button
                     onClick={() => { onToggleLang(); setMobileMenuOpen(false); }}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
-                      isDark 
-                        ? 'bg-slate-900 text-slate-350 border-slate-800' 
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border text-xs font-bold transition-all cursor-pointer ${isDark
+                        ? 'bg-slate-900 text-slate-350 border-slate-800'
                         : 'bg-slate-50 text-slate-700 border-slate-200'
-                    }`}
+                      }`}
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping"></span>
                     {lang === 'en' ? 'ENGLISH' : 'INDONESIA'}
                   </button>
 
                   {onLogin && (
-                    <button 
+                    <button
                       onClick={() => { onLogin(); setMobileMenuOpen(false); }}
-                      className={`px-4 py-2 font-extrabold text-xs rounded-xl border cursor-pointer ${
-                        isDark 
-                          ? 'border-slate-800 bg-slate-900 text-slate-300 hover:text-white' 
+                      className={`px-4 py-2 font-extrabold text-xs rounded-xl border cursor-pointer ${isDark
+                          ? 'border-slate-800 bg-slate-900 text-slate-300 hover:text-white'
                           : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
-                      }`}
+                        }`}
                     >
                       {lang === 'en' ? 'Sign In' : 'Masuk'}
                     </button>
                   )}
 
-                  <button 
+                  <button
                     onClick={() => { onSignUp(); setMobileMenuOpen(false); }}
                     className="flex-1 py-2.5 bg-gradient-to-r from-blue-700 to-indigo-650 hover:from-blue-800 hover:to-indigo-750 text-white font-extrabold text-xs rounded-xl text-center shadow-lg shadow-blue-500/10 cursor-pointer"
                   >
@@ -707,8 +701,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
         {/* Animated background floating shapes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               y: [0, -30, 0],
               x: [0, 20, 0],
               scale: [1, 1.1, 1]
@@ -716,8 +710,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className={`absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl opacity-30 ${isDark ? 'bg-blue-900/25' : 'bg-blue-200/45'}`}
           />
-          <motion.div 
-            animate={{ 
+          <motion.div
+            animate={{
               y: [0, 40, 0],
               x: [0, -20, 0],
               scale: [1, 1.15, 1]
@@ -749,31 +743,29 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
         </div>
 
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 relative animate-in fade-in duration-700">
-          
+
           {/* Main Hero Copywriting & CTA Centered */}
           <div className="flex flex-col items-center text-center space-y-6 max-w-4xl mx-auto mb-16 relative z-10">
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border ${
-                isDark 
-                  ? 'bg-blue-950/40 border-blue-900/50 text-blue-400' 
+              className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border ${isDark
+                  ? 'bg-blue-950/40 border-blue-900/50 text-blue-400'
                   : 'bg-blue-50 border-blue-100 text-blue-700'
-              }`}
+                }`}
             >
               <Sparkles size={14} className="text-blue-500 animate-spin-slow" />
               {t.heroTag}
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className={`text-4xl sm:text-5xl md:text-[54px] lg:text-[64px] font-black tracking-tight leading-[1.08] ${
-                isDark ? 'text-white' : 'text-slate-900'
-              }`}
+              className={`text-4xl sm:text-5xl md:text-[54px] lg:text-[64px] font-black tracking-tight leading-[1.08] ${isDark ? 'text-white' : 'text-slate-900'
+                }`}
             >
               {t.heroTitlePrefix}
               <span className="block mt-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-indigo-700 bg-clip-text text-transparent italic font-serif leading-none py-1">
@@ -781,38 +773,36 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               </span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className={`text-base sm:text-lg leading-relaxed max-w-2xl mx-auto ${
-                isDark ? 'text-slate-300' : 'text-slate-500'
-              }`}
+              className={`text-base sm:text-lg leading-relaxed max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-500'
+                }`}
             >
               {t.heroSubtitle}
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
             >
-              <button 
-                onClick={onStart} 
+              <button
+                onClick={onStart}
                 className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 text-white font-extrabold text-lg rounded-2xl shadow-xl shadow-blue-500/20 hover:scale-[1.03] active:scale-[0.97] transition-all flex items-center justify-center gap-3 group border border-blue-500"
               >
                 {t.ctaBtn}
                 <ArrowRight size={20} className="group-hover:translate-x-1.5 transition-transform" />
               </button>
 
-              <button 
-                onClick={() => scrollTo('demo-preview')} 
-                className={`w-full sm:w-auto px-8 py-4 font-bold text-lg rounded-2xl shadow-sm transition-all flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.97] border ${
-                  isDark 
-                    ? 'bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-200' 
+              <button
+                onClick={() => scrollTo('demo-preview')}
+                className={`w-full sm:w-auto px-8 py-4 font-bold text-lg rounded-2xl shadow-sm transition-all flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-[0.97] border ${isDark
+                    ? 'bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-200'
                     : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-700'
-                }`}
+                  }`}
               >
                 <Play size={16} fill="currentColor" className={isDark ? "text-indigo-400" : "text-slate-500"} />
                 {lang === 'en' ? 'Watch Simulation' : 'Lihat Simulasi'}
@@ -820,13 +810,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </motion.div>
 
             {/* Micro Highlights */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className={`pt-8 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-semibold font-mono uppercase tracking-widest ${
-                isDark ? 'text-slate-400' : 'text-slate-400'
-              }`}
+              className={`pt-8 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-semibold font-mono uppercase tracking-widest ${isDark ? 'text-slate-400' : 'text-slate-400'
+                }`}
             >
               <div className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
                 <CheckCircle2 size={16} className="text-emerald-500" />
@@ -851,11 +840,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={`w-full max-w-[1680px] mx-auto rounded-3xl border shadow-2xl overflow-hidden relative backdrop-blur-md ${
-              isDark 
-                ? 'bg-[#121827]/90 border-slate-800 shadow-indigo-950/20' 
+            className={`w-full max-w-[1680px] mx-auto rounded-3xl border shadow-2xl overflow-hidden relative backdrop-blur-md ${isDark
+                ? 'bg-[#121827]/90 border-slate-800 shadow-indigo-950/20'
                 : 'bg-white/95 border-slate-200 shadow-slate-200/50'
-            }`}
+              }`}
           >
             {/* Top Browser Bar Controls */}
             <div className={`px-4 py-3.5 border-b flex items-center justify-between ${isDark ? 'bg-slate-950/60 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
@@ -867,9 +855,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               </div>
 
               {/* URL Address Bar */}
-              <div className={`hidden md:flex items-center justify-center gap-2 px-6 py-1 rounded-lg text-xs font-mono font-medium max-w-lg w-full text-center ${
-                isDark ? 'bg-slate-900 border border-slate-800 text-slate-400' : 'bg-white border border-slate-200 text-slate-500'
-              }`}>
+              <div className={`hidden md:flex items-center justify-center gap-2 px-6 py-1 rounded-lg text-xs font-mono font-medium max-w-lg w-full text-center ${isDark ? 'bg-slate-900 border border-slate-800 text-slate-400' : 'bg-white border border-slate-200 text-slate-500'
+                }`}>
                 <ShieldCheck size={12} className="text-emerald-500 shrink-0" />
                 <span>takedestiny.app/diagnostic-workspace</span>
               </div>
@@ -888,7 +875,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
             {/* Inner Dashboard Live Layout Preview */}
             <div className="p-6 sm:p-8 lg:p-10 space-y-8 text-left">
-              
+
               {/* Top Quick Ratio Meter Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
@@ -929,13 +916,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                     icon: <BarChart3 className="text-purple-500" size={18} />
                   }
                 ].map((card, idx) => (
-                  <div 
+                  <div
                     key={idx}
-                    className={`p-5 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between space-y-4 ${
-                      isDark 
-                        ? 'bg-[#121827] border-slate-800 text-slate-100 hover:border-slate-700/80 shadow-lg' 
+                    className={`p-5 rounded-2xl border transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between space-y-4 ${isDark
+                        ? 'bg-[#121827] border-slate-800 text-slate-100 hover:border-slate-700/80 shadow-lg'
                         : 'bg-slate-50 border-slate-200 text-slate-800 hover:border-slate-300 hover:bg-slate-100/50'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -957,11 +943,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
                     <div className="space-y-1 pt-1">
                       <div className={`w-full h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-slate-800/80' : 'bg-slate-200'}`}>
-                        <motion.div 
+                        <motion.div
                           initial={{ width: '0%' }}
                           animate={{ width: card.percentage }}
                           transition={{ duration: 1, delay: 0.1 * idx }}
-                          className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full" 
+                          className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"
                         />
                       </div>
                     </div>
@@ -971,14 +957,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
               {/* Huge Diagnostic Visualizer Banner & Live Metrics Section */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2">
-                
+
                 {/* Embedded Big Interactive SVG Mockup Dashboard Visualization */}
-                <div className={`lg:col-span-8 p-6 rounded-2xl border flex flex-col justify-between relative overflow-hidden min-h-[380px] ${
-                  isDark 
-                    ? 'bg-[#0f1424] border-slate-800 shadow-inner' 
+                <div className={`lg:col-span-8 p-6 rounded-2xl border flex flex-col justify-between relative overflow-hidden min-h-[380px] ${isDark
+                    ? 'bg-[#0f1424] border-slate-800 shadow-inner'
                     : 'bg-slate-50 border-slate-200'
-                }`}>
-                  
+                  }`}>
+
                   {/* Decorative background grids */}
                   <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-25 pointer-events-none" />
 
@@ -989,19 +974,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                         {lang === 'en' ? 'Mathematical Cashflow Trajectory Diagnostic' : 'Diagnostik Lintasan Arus Kas Matematis'}
                       </h3>
                     </div>
-                    
+
                     {/* Timeframe selector simulated */}
                     <div className="flex gap-1.5 font-mono text-[10px]">
                       {['M1', 'M3', 'M6', 'M12'].map((term, i) => (
-                        <span 
+                        <span
                           key={term}
-                          className={`px-2.5 py-1 rounded-lg border font-bold ${
-                            i === 2 
-                              ? 'bg-blue-600 border-blue-600 text-white shadow' 
-                              : isDark 
-                                ? 'bg-slate-950 border-slate-800 text-slate-450' 
+                          className={`px-2.5 py-1 rounded-lg border font-bold ${i === 2
+                              ? 'bg-blue-600 border-blue-600 text-white shadow'
+                              : isDark
+                                ? 'bg-slate-950 border-slate-800 text-slate-450'
                                 : 'bg-white border-slate-200 text-slate-600'
-                          }`}
+                            }`}
                         >
                           {term}
                         </span>
@@ -1011,7 +995,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
                   {/* Fully Animated Custom SVG Waveform Chart Area */}
                   <div className="relative h-48 w-full flex items-center justify-center -my-2">
-                    
+
                     {/* SVG Chart Graphic */}
                     <svg className="w-full h-full" viewBox="0 0 800 200" preserveAspectRatio="none">
                       <defs>
@@ -1020,42 +1004,42 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                           <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                         </linearGradient>
                       </defs>
-                      
+
                       {/* Grid Horizontal Guidelines */}
                       <line x1="0" y1="50" x2="800" y2="50" stroke={isDark ? "#1e293b" : "#e2e8f0"} strokeWidth="1" strokeDasharray="4 4" />
                       <line x1="0" y1="100" x2="800" y2="100" stroke={isDark ? "#1e293b" : "#e2e8f0"} strokeWidth="1" strokeDasharray="4 4" />
                       <line x1="0" y1="150" x2="800" y2="150" stroke={isDark ? "#1e293b" : "#e2e8f0"} strokeWidth="1" strokeDasharray="4 4" />
 
                       {/* Main Cashflow Trend Area */}
-                      <motion.path 
+                      <motion.path
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        d="M0,130 C150,140 250,60 380,80 C500,100 600,160 800,110 L800,200 L0,200 Z" 
+                        d="M0,130 C150,140 250,60 380,80 C500,100 600,160 800,110 L800,200 L0,200 Z"
                         fill="url(#chartGlow)"
                       />
 
                       {/* Line 1 Indicator (Inflows Trend) */}
-                      <motion.path 
+                      <motion.path
                         initial={{ pathLength: 0 }}
                         animate={{ pathLength: 1 }}
                         transition={{ duration: 1.8, ease: "easeInOut" }}
-                        d="M0,130 C150,140 250,60 380,80 C500,100 600,160 800,110" 
-                        fill="none" 
-                        stroke="#3b82f6" 
-                        strokeWidth="3.5" 
+                        d="M0,130 C150,140 250,60 380,80 C500,100 600,160 800,110"
+                        fill="none"
+                        stroke="#3b82f6"
+                        strokeWidth="3.5"
                       />
 
                       {/* Line 2 Indicator (Required Threshold) */}
                       <line x1="0" y1="110" x2="800" y2="110" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="6 4" />
 
                       {/* Flow Dot indicators animating on paths */}
-                      <motion.circle 
-                        cx="380" 
-                        cy="80" 
-                        r="6" 
-                        fill="#60a5fa" 
-                        stroke="#1d4ed8" 
+                      <motion.circle
+                        cx="380"
+                        cy="80"
+                        r="6"
+                        fill="#60a5fa"
+                        stroke="#1d4ed8"
                         strokeWidth="2.5"
                         animate={{
                           scale: [1, 1.4, 1],
@@ -1067,13 +1051,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                         }}
                       />
 
-                      <motion.circle 
-                        cx="800" 
-                        cy="110" 
-                        r="5" 
-                        fill="#10b981" 
-                        stroke="#065f46" 
-                        strokeWidth="2" 
+                      <motion.circle
+                        cx="800"
+                        cy="110"
+                        r="5"
+                        fill="#10b981"
+                        stroke="#065f46"
+                        strokeWidth="2"
                       />
                     </svg>
 
@@ -1090,9 +1074,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </div>
 
                   {/* Mathematical Equations Validation Log ticker */}
-                  <div className={`mt-2 p-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-y-2 text-[11px] font-mono ${
-                    isDark ? 'bg-slate-950/85 border-slate-800 text-slate-400' : 'bg-white border-slate-205 text-slate-600'
-                  }`}>
+                  <div className={`mt-2 p-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-y-2 text-[11px] font-mono ${isDark ? 'bg-slate-950/85 border-slate-800 text-slate-400' : 'bg-white border-slate-205 text-slate-600'
+                    }`}>
                     <div className="flex items-center gap-2">
                       <RefreshCw className="text-blue-500 animate-spin-slow shrink-0" size={13} />
                       <span className="font-bold">{lang === 'en' ? 'Calibration standard logs:' : 'Log standar kalibrasi:'}</span>
@@ -1109,11 +1092,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
                 {/* Right Panel: Structured Modern Audit Status Board */}
                 <div className="lg:col-span-4 gap-4 flex flex-col justify-between">
-                  
+
                   {/* Calibration Standard Overview */}
-                  <div className={`p-5 rounded-2xl border flex-1 space-y-4 text-left ${
-                    isDark ? 'bg-[#0f1424] border-slate-800' : 'bg-slate-50 border-slate-205'
-                  }`}>
+                  <div className={`p-5 rounded-2xl border flex-1 space-y-4 text-left ${isDark ? 'bg-[#0f1424] border-slate-800' : 'bg-slate-50 border-slate-205'
+                    }`}>
                     <div className="flex items-center gap-2">
                       <ShieldCheck size={18} className="text-blue-500 shrink-0" />
                       <span className={`text-[11px] font-bold font-mono uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -1122,8 +1104,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                     </div>
 
                     <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                      {lang === 'en' 
-                        ? 'Your finances are processed locally inside your browser using precise, rule-based economic logic. No algorithms guess; it relies strictly on real arithmetic calculations.' 
+                      {lang === 'en'
+                        ? 'Your finances are processed locally inside your browser using precise, rule-based economic logic. No algorithms guess; it relies strictly on real arithmetic calculations.'
                         : 'Keuangan Anda diproses secara lokal langsung di peramban menggunakan logika ekonomi berbasis aturan dasar. Tidak ada tebakan algoritma; murni perhitungan aritmatika nyata.'}
                     </p>
 
@@ -1144,9 +1126,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </div>
 
                   {/* Calibration Live Ticker Status */}
-                  <div className={`p-4 rounded-xl border flex items-center justify-between text-left ${
-                    isDark ? 'bg-[#0d1222] border-slate-805' : 'bg-white border-slate-200'
-                  }`}>
+                  <div className={`p-4 rounded-xl border flex items-center justify-between text-left ${isDark ? 'bg-[#0d1222] border-slate-805' : 'bg-white border-slate-200'
+                    }`}>
                     <div className="flex items-center gap-3">
                       <Activity className="text-blue-500 animate-pulse shrink-0" size={24} />
                       <div className="leading-none">
@@ -1189,27 +1170,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               { icon: <TrendingUp className="text-emerald-500" />, title: lang === 'en' ? 'Business Runway' : 'Runway Bisnis', metric: 'Burn Rate Buffer', desc: lang === 'en' ? 'Determining exactly how many months your enterprise can operate productively based on static cash reserves.' : 'Menghitung waktu bertahan bisnis Anda berdasarkan cadangan kas saat ini dikurangi biaya opex rutin.' },
               { icon: <Users className="text-purple-500" />, title: lang === 'en' ? 'Overhead Efficiency' : 'Efisiensi Beban Tim', metric: 'Payroll Limit 30%', desc: lang === 'en' ? 'Reviewing the health ratios of payroll commitments against receipts to optimize sustainable capital deployment.' : 'Menjaga margin pengeluaran tim tetap ideal dengan performa omzet guna menjamin ekspansi bisnis.' }
             ].map((f, i) => (
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.04, y: -6 }}
                 transition={{ duration: 0.3 }}
-                id={`feature-card-${i}`} 
-                key={i} 
-                className={`p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between cursor-pointer ${
-                  isDark 
-                    ? 'bg-[#121827] border-slate-800 hover:border-blue-900/60 shadow-lg shadow-indigo-950/10 hover:shadow-indigo-900/25' 
+                id={`feature-card-${i}`}
+                key={i}
+                className={`p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between cursor-pointer ${isDark
+                    ? 'bg-[#121827] border-slate-800 hover:border-blue-900/60 shadow-lg shadow-indigo-950/10 hover:shadow-indigo-900/25'
                     : 'bg-white border-slate-100 hover:border-slate-200 hover:shadow-xl hover:shadow-slate-200/50'
-                }`}
+                  }`}
               >
                 <div className="space-y-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-inner ${
-                    isDark ? 'bg-slate-900 border border-slate-800' : 'bg-slate-50'
-                  }`}>
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-inner ${isDark ? 'bg-slate-900 border border-slate-800' : 'bg-slate-50'
+                    }`}>
                     {f.icon}
                   </div>
                   <h3 className={`font-bold text-lg ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>{f.title}</h3>
-                  <p className={`text-xs font-mono font-bold w-max px-2.5 py-1 rounded ${
-                    isDark ? 'bg-blue-950/50 text-blue-400 border border-blue-900/30' : 'bg-blue-50 text-blue-600'
-                  }`}>{f.metric}</p>
+                  <p className={`text-xs font-mono font-bold w-max px-2.5 py-1 rounded ${isDark ? 'bg-blue-950/50 text-blue-400 border border-blue-900/30' : 'bg-blue-50 text-blue-600'
+                    }`}>{f.metric}</p>
                   <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{f.desc}</p>
                 </div>
               </motion.div>
@@ -1221,13 +1199,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
       {/* Problems & Solutions Dual Sections (Styled Red & Green) */}
       <section id="problems-solutions" className="py-24">
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12">
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-            
+
             {/* PROBLEM ROADBLOCKS - RED STYLING */}
-            <div className={`space-y-10 flex flex-col justify-between p-8 lg:p-12 rounded-3xl border relative overflow-hidden transition-all duration-300 ${
-              isDark ? 'bg-red-950/10 border-red-900/30' : 'bg-red-50/20 border-red-100/40'
-            }`}>
+            <div className={`space-y-10 flex flex-col justify-between p-8 lg:p-12 rounded-3xl border relative overflow-hidden transition-all duration-300 ${isDark ? 'bg-red-950/10 border-red-900/30' : 'bg-red-50/20 border-red-100/40'
+              }`}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-2xl pointer-events-none" />
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 text-rose-700 bg-rose-100/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -1245,15 +1222,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               {/* Problems list */}
               <div className="space-y-6 mt-8">
                 {t.problems.map((prob, index) => (
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.02 }}
-                    id={`prob-item-${index}`} 
-                    key={index} 
-                    className={`flex gap-4 p-4 rounded-xl transition-all border cursor-pointer ${
-                      isDark 
-                        ? 'hover:bg-red-950/30 border-transparent hover:border-red-900/40' 
+                    id={`prob-item-${index}`}
+                    key={index}
+                    className={`flex gap-4 p-4 rounded-xl transition-all border cursor-pointer ${isDark
+                        ? 'hover:bg-red-950/30 border-transparent hover:border-red-900/40'
                         : 'hover:bg-white/80 border-transparent hover:border-red-100'
-                    }`}
+                      }`}
                   >
                     <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-bold font-mono text-sm shrink-0">
                       {index + 1}
@@ -1261,9 +1237,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                     <div className="space-y-1">
                       <div className="flex items-center gap-3">
                         <h4 className={`font-extrabold text-base ${isDark ? 'text-rose-200' : 'text-rose-950'}`}>{prob.title}</h4>
-                        <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
-                          isDark ? 'bg-red-950/40 text-red-400' : 'bg-rose-200/50 text-rose-800'
-                        }`}>
+                        <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-bold ${isDark ? 'bg-red-950/40 text-red-400' : 'bg-rose-200/50 text-rose-800'
+                          }`}>
                           {prob.metric}
                         </span>
                       </div>
@@ -1275,9 +1250,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </div>
 
             {/* SOLUTIONS CORRECTION - GREEN STYLING */}
-            <div className={`space-y-10 flex flex-col justify-between p-8 lg:p-12 rounded-3xl border relative overflow-hidden transition-all duration-300 ${
-              isDark ? 'bg-emerald-950/10 border-emerald-900/30' : 'bg-emerald-50/20 border-emerald-100/40'
-            }`}>
+            <div className={`space-y-10 flex flex-col justify-between p-8 lg:p-12 rounded-3xl border relative overflow-hidden transition-all duration-300 ${isDark ? 'bg-emerald-950/10 border-emerald-900/30' : 'bg-emerald-50/20 border-emerald-100/40'
+              }`}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 text-emerald-700 bg-emerald-100/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider" style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)' }}>
@@ -1295,15 +1269,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               {/* Solutions list */}
               <div className="space-y-6 mt-8">
                 {t.solutions.map((sol, index) => (
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.02 }}
-                    id={`sol-item-${index}`} 
-                    key={index} 
-                    className={`flex gap-4 p-4 rounded-xl transition-all border cursor-pointer ${
-                      isDark 
-                        ? 'hover:bg-emerald-950/30 border-transparent hover:border-emerald-900/40' 
+                    id={`sol-item-${index}`}
+                    key={index}
+                    className={`flex gap-4 p-4 rounded-xl transition-all border cursor-pointer ${isDark
+                        ? 'hover:bg-emerald-950/30 border-transparent hover:border-emerald-900/40'
                         : 'hover:bg-white/80 border-transparent hover:border-emerald-100'
-                    }`}
+                      }`}
                   >
                     <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold font-mono text-sm shrink-0">
                       {index + 1}
@@ -1311,9 +1284,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                     <div className="space-y-1">
                       <div className="flex items-center gap-3">
                         <h4 className={`font-extrabold text-base ${isDark ? 'text-emerald-200' : 'text-emerald-950'}`}>{sol.title}</h4>
-                        <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
-                          isDark ? 'bg-emerald-950/40 text-emerald-400' : 'bg-emerald-200/50 text-emerald-800'
-                        }`}>
+                        <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-bold ${isDark ? 'bg-emerald-950/40 text-emerald-400' : 'bg-emerald-200/50 text-emerald-800'
+                          }`}>
                           {sol.metric}
                         </span>
                       </div>
@@ -1335,7 +1307,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
         <div className="absolute bottom-[-100px] left-[-100px] w-96 h-96 bg-blue-700/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-xs font-mono font-bold tracking-widest text-blue-400 uppercase bg-blue-500/10 px-3 py-1 rounded">
               {t.demoTitle}
@@ -1350,7 +1322,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
           {/* Simulated Browser Frame Container (Anti Space-Hogging Wide Layout) */}
           <div className="relative max-w-5xl mx-auto bg-slate-950/80 rounded-2xl border border-slate-700/50 shadow-2xl p-4 sm:p-8 backdrop-blur overflow-hidden">
-            
+
             {/* Header circles */}
             <div className="flex items-center justify-between pb-6 border-b border-slate-800/80">
               <div className="flex items-center gap-2">
@@ -1359,9 +1331,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                 <span className="w-3 w-3 h-3 h-3 rounded-full bg-emerald-500 block"></span>
                 <span className="text-xs text-slate-500 ml-3 font-mono">https://contech.id/diagnostic</span>
               </div>
-              
+
               <div className="flex items-center gap-3">
-                <button 
+                <button
                   onClick={() => setSoundEnabled(prev => !prev)}
                   className="p-2 hover:bg-slate-850 rounded-lg text-slate-400 hover:text-white transition-colors flex items-center gap-1 text-xs"
                 >
@@ -1373,7 +1345,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
             {/* Live active dashboard simulator body */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6">
-              
+
               {/* Simulator controller sidebar */}
               <div className="lg:col-span-5 bg-slate-900 p-6 rounded-xl border border-slate-800 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
@@ -1395,17 +1367,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                           ${mockRevenue.toLocaleString()}
                         </span>
                       </div>
-                      <input 
-                        type="range" 
-                        min="5000" 
-                        max="80000" 
+                      <input
+                        type="range"
+                        min="5000"
+                        max="80000"
                         step="1000"
-                        value={mockRevenue} 
+                        value={mockRevenue}
                         onChange={(e) => {
                           setMockRevenue(Number(e.target.value));
-                          if (simProgress >= 100) setSimProgress(99); 
+                          if (simProgress >= 100) setSimProgress(99);
                         }}
-                        className="w-full accent-blue-500 cursor-pointer h-1.5 bg-slate-850 rounded-lg" 
+                        className="w-full accent-blue-500 cursor-pointer h-1.5 bg-slate-850 rounded-lg"
                       />
                     </div>
 
@@ -1417,17 +1389,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                           ${mockPayroll.toLocaleString()}
                         </span>
                       </div>
-                      <input 
-                        type="range" 
-                        min="2000" 
-                        max="40000" 
+                      <input
+                        type="range"
+                        min="2000"
+                        max="40000"
                         step="500"
-                        value={mockPayroll} 
+                        value={mockPayroll}
                         onChange={(e) => {
                           setMockPayroll(Number(e.target.value));
-                          if (simProgress >= 100) setSimProgress(99); 
+                          if (simProgress >= 100) setSimProgress(99);
                         }}
-                        className="w-full accent-blue-500 cursor-pointer h-1.5 bg-slate-850 rounded-lg" 
+                        className="w-full accent-blue-500 cursor-pointer h-1.5 bg-slate-850 rounded-lg"
                       />
                     </div>
                   </div>
@@ -1446,7 +1418,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
                 <div className="flex items-center gap-2 pt-4 border-t border-slate-800/80">
                   {!isPlaying ? (
-                    <button 
+                    <button
                       onClick={handleSimStart}
                       className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-600/20 active:scale-95 text-sm"
                     >
@@ -1454,7 +1426,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                       {simProgress > 0 && simProgress < 100 ? 'Resume' : t.demoPlay}
                     </button>
                   ) : (
-                    <button 
+                    <button
                       onClick={handleSimPause}
                       className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl font-bold flex items-center justify-center gap-2 transition-all text-sm"
                     >
@@ -1462,8 +1434,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                       Pause
                     </button>
                   )}
-                  
-                  <button 
+
+                  <button
                     onClick={handleSimReset}
                     className="p-3 bg-slate-850 hover:bg-slate-800 text-slate-400 hover:text-white rounded-xl transition-all border border-slate-800"
                     title={t.demoReset}
@@ -1475,11 +1447,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
               {/* Simulation Visual Window */}
               <div className="lg:col-span-7 bg-slate-950 p-6 rounded-xl border border-slate-900/50 flex flex-col justify-between space-y-6 min-h-[300px] relative">
-                
+
                 {/* Active process toast overlay */}
                 <AnimatePresence>
                   {soundNotification && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, scale: 0.95 }}
@@ -1495,7 +1467,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   <span className="text-xs font-bold font-mono text-slate-500 uppercase tracking-widest">
                     Diagnostic Workspace
                   </span>
-                  
+
                   <span className="text-xs font-mono font-bold text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1 rounded">
                     Progress: <span className="text-blue-400 font-extrabold">{Math.floor(simProgress)}%</span>
                   </span>
@@ -1519,7 +1491,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                     </div>
                   ) : (
                     <div className="space-y-5 animate-in fade-in duration-300">
-                      
+
                       {/* Active simulation phase indicator */}
                       <div className="flex items-center gap-2 font-mono text-xs text-blue-400 font-bold">
                         <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping"></span>
@@ -1535,9 +1507,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                           <span className="text-3xl font-black text-slate-200">
                             {simProgress < 70 ? 'Calculating...' : '74'}
                           </span>
-                          <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono ${
-                            simProgress < 70 ? 'bg-slate-800 text-slate-400' : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                          }`}>
+                          <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded font-mono ${simProgress < 70 ? 'bg-slate-800 text-slate-400' : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            }`}>
                             {simProgress < 70 ? 'Processing' : 'HEALTHY'}
                           </span>
                         </div>
@@ -1550,7 +1521,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                               <span className="font-bold text-slate-200">{simProgress < 40 ? '...' : `${mockNetMargin.toFixed(1)}%`}</span>
                             </div>
                             <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
-                              <div 
+                              <div
                                 className={`h-full transition-all duration-300 ${mockNetMargin > 15 ? 'bg-emerald-500' : 'bg-rose-500'}`}
                                 style={{ width: `${simProgress < 40 ? 0 : Math.max(0, Math.min(100, mockNetMargin))}%` }}
                               />
@@ -1561,12 +1532,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                           <div className="space-y-1">
                             <div className="flex justify-between text-[11px] text-slate-400 font-mono">
                               <span>Payroll Allocation</span>
-                              <span className="font-bold text-slate-200">{simProgress < 65 ? '...' : `${((mockPayroll/mockRevenue)*100).toFixed(0)}%`}</span>
+                              <span className="font-bold text-slate-200">{simProgress < 65 ? '...' : `${((mockPayroll / mockRevenue) * 100).toFixed(0)}%`}</span>
                             </div>
                             <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
-                              <div 
-                                className={`h-full transition-all duration-300 ${((mockPayroll/mockRevenue)*100) > 50 ? 'bg-rose-550' : 'bg-blue-500'}`}
-                                style={{ width: `${simProgress < 65 ? 0 : Math.min(100, (mockPayroll/mockRevenue)*100)}%` }}
+                              <div
+                                className={`h-full transition-all duration-300 ${((mockPayroll / mockRevenue) * 100) > 50 ? 'bg-rose-550' : 'bg-blue-500'}`}
+                                style={{ width: `${simProgress < 65 ? 0 : Math.min(100, (mockPayroll / mockRevenue) * 100)}%` }}
                               />
                             </div>
                           </div>
@@ -1605,7 +1576,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
       {/* Testimoni Sections (4 Cards Responsive Grid layout) */}
       <section id="testimonials-section" className={`py-24 transition-colors duration-500 ${isDark ? 'bg-[#0b0f19] border-t border-slate-800/80' : 'bg-slate-50 border-t border-slate-100'}`}>
         <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
             <span className="text-xs font-bold tracking-widest uppercase text-blue-500">Client Reviews</span>
             <h2 className={`text-3xl font-extrabold sm:text-4xl ${isDark ? 'text-white' : 'text-slate-900'}`}>
@@ -1618,16 +1589,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {t.testimonials.map((test, i) => (
-              <motion.div 
+              <motion.div
                 whileHover={{ y: -6, scale: 1.03 }}
                 transition={{ duration: 0.3 }}
-                id={`testimonial-card-${i}`} 
-                key={i} 
-                className={`p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer ${
-                  isDark 
-                    ? 'bg-[#121827] border-slate-800 hover:border-blue-900/60 shadow-lg shadow-indigo-950/10' 
+                id={`testimonial-card-${i}`}
+                key={i}
+                className={`p-8 rounded-2xl border transition-all duration-300 flex flex-col justify-between space-y-4 cursor-pointer ${isDark
+                    ? 'bg-[#121827] border-slate-800 hover:border-blue-900/60 shadow-lg shadow-indigo-950/10'
                     : 'bg-white border-slate-100 hover:border-blue-100 shadow-sm'
-                }`}
+                  }`}
               >
                 <div className="space-y-3">
                   {/* Stars block */}
@@ -1636,7 +1606,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                       <span key={idx} className="text-amber-400 text-sm">★</span>
                     ))}
                   </div>
-                  
+
                   {/* Text quotes */}
                   <p className={`text-sm leading-relaxed font-medium italic ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
                     "{test.text}"
@@ -1646,9 +1616,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                 {/* Testimonial Author profile element */}
                 <div className={`pt-4 border-t flex items-center justify-between ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
                   <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold font-serif shadow-inner ${
-                      isDark ? 'bg-slate-900 border border-slate-800 text-slate-300' : 'bg-slate-100/80 border border-slate-200/80 text-slate-700'
-                    }`}>
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold font-serif shadow-inner ${isDark ? 'bg-slate-900 border border-slate-800 text-slate-300' : 'bg-slate-100/80 border border-slate-200/80 text-slate-700'
+                      }`}>
                       {test.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
@@ -1656,11 +1625,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                       <span className="text-xs text-slate-500 block mt-1">{test.role} • {test.location}</span>
                     </div>
                   </div>
-                  
+
                   {/* Status Badge */}
-                  <span className={`text-[10px] font-bold uppercase tracking-wider font-mono px-2.5 py-1 rounded border ${
-                    isDark ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/30' : 'bg-emerald-50 text-emerald-700 border-emerald-100'
-                  }`}>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider font-mono px-2.5 py-1 rounded border ${isDark ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/30' : 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                    }`}>
                     {test.target}
                   </span>
                 </div>
@@ -1686,7 +1654,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </p>
           </div>
 
-          <button 
+          <button
             onClick={onStart}
             className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-lg rounded-2xl shadow-2xl shadow-blue-500/20 active:scale-95 transition-all inline-flex items-center gap-3 group border border-blue-500"
           >
@@ -1698,20 +1666,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
 
       {/* Premium Footer with precise target links & custom active modals */}
       <footer id="footer-anchor" className="bg-slate-900 text-slate-400 border-t border-slate-800">
-        <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-12 py-16">
+        <div className="w-full max-w-[1780px] mx-auto px-4 sm:px-8 lg:px-12 py-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-            
+
             {/* Branding widget */}
-            <div className="md:col-span-5 space-y-5">
+            <div className="md:col-span-6 lg:col-span-4 space-y-5">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-lg shadow-sm">
-                  F
-                </div>
-                <span className="font-extrabold text-lg tracking-tight text-white">
-                  {L_TEXT[lang].heroTitlePrefix.split(' ')[0]} <span className="text-blue-500">{L_TEXT[lang].heroTitleHighlight.split(' ').slice(-1)[0]}</span>
+                <img
+                  src="/logo.png"
+                  alt="Financial Health logo"
+                  className="w-9 h-9 rounded-lg object-contain shadow-sm"
+                />
+                <span className="font-extrabold text-base tracking-tight text-white">
+                  Financial<span className="text-blue-500 font-extrabold">Health</span>
                 </span>
               </div>
-              
+
               <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
                 {lang === 'en' ? 'Calculative diagnostics engineered to secure operational survival ranges. Built for micro-enterprises and diligent domestic budgeting.' : 'Asesmen finansial deterministik yang dirancang khusus untuk mewujudkan sekuritas arus kas pribadi maupun bisnis Anda.'}
               </p>
@@ -1722,11 +1692,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   Official Channels (CONTECH ID)
                 </span>
                 <div className="flex items-center gap-3">
-                  
+
                   {/* INSTAGRAM */}
-                  <a 
-                    href="https://www.instagram.com/contech.id/" 
-                    target="_blank" 
+                  <a
+                    href="https://www.instagram.com/contech.id/"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="Instagram - contech.id"
@@ -1737,9 +1707,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </a>
 
                   {/* THREADS */}
-                  <a 
-                    href="https://www.threads.com/@contech.id?hl=id" 
-                    target="_blank" 
+                  <a
+                    href="https://www.threads.com/@contech.id?hl=id"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="Threads - contech.id"
@@ -1751,9 +1721,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </a>
 
                   {/* X (FORMERLY TWITTER) */}
-                  <a 
-                    href="https://x.com/contechofficial" 
-                    target="_blank" 
+                  <a
+                    href="https://x.com/contechofficial"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="X - contechofficial"
@@ -1764,9 +1734,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </a>
 
                   {/* FACEBOOK */}
-                  <a 
-                    href="https://web.facebook.com/contech.id." 
-                    target="_blank" 
+                  <a
+                    href="https://web.facebook.com/contech.id."
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="Facebook - contech.id"
@@ -1777,9 +1747,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </a>
 
                   {/* TIKTOK */}
-                  <a 
-                    href="https://www.tiktok.com/@contech.id" 
-                    target="_blank" 
+                  <a
+                    href="https://www.tiktok.com/@contech.id"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="TikTok - contech.id"
@@ -1790,9 +1760,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                   </a>
 
                   {/* YOUTUBE */}
-                  <a 
-                    href="https://www.youtube.com/@contechid1288" 
-                    target="_blank" 
+                  <a
+                    href="https://www.youtube.com/@contechid1288"
+                    target="_blank"
                     rel="noreferrer noopener"
                     className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all flex items-center justify-center border border-slate-750"
                     title="YouTube - contechid1288"
@@ -1807,7 +1777,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </div>
 
             {/* Quick navigations */}
-            <div className="md:col-span-3 space-y-4">
+            <div className="md:col-span-3 lg:col-span-2 space-y-4">
               <h4 className="font-extrabold text-white text-sm tracking-wider uppercase font-mono">
                 {lang === 'en' ? 'Core Anchors' : 'Navigasi Menu'}
               </h4>
@@ -1836,7 +1806,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
             </div>
 
             {/* Interactive Terms/Legal files triggers (Will open modals) */}
-            <div className="md:col-span-4 space-y-4">
+            <div className="md:col-span-3 lg:col-span-3 space-y-4">
               <h4 className="font-extrabold text-white text-sm tracking-wider uppercase font-mono">
                 {lang === 'en' ? 'Legal & Help Resources' : 'Informasi Hukum & Layanan'}
               </h4>
@@ -1868,6 +1838,53 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               </ul>
             </div>
 
+            {/* Footer operational summary */}
+            <div className="md:col-span-12 lg:col-span-3">
+              <div className="border border-slate-800 bg-slate-950/40 p-5 rounded-2xl space-y-5">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <h4 className="font-extrabold text-white text-sm tracking-wider uppercase font-mono">
+                      {lang === 'en' ? 'Diagnostic Snapshot' : 'Ringkasan Diagnostik'}
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-1 font-semibold">
+                      {lang === 'en' ? 'Core checks available inside the platform.' : 'Pemeriksaan inti tersedia di dalam platform.'}
+                    </p>
+                  </div>
+                  <ShieldCheck size={22} className="text-blue-500 shrink-0" />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                    <Activity size={16} className="text-emerald-400 shrink-0" />
+                    <div>
+                      <div className="text-xs font-black text-white">Cashflow</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        {lang === 'en' ? 'Margin health' : 'Kesehatan margin'}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                    <BarChart3 size={16} className="text-blue-400 shrink-0" />
+                    <div>
+                      <div className="text-xs font-black text-white">DSR</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        {lang === 'en' ? 'Debt pressure' : 'Tekanan utang'}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 rounded-xl bg-slate-900/70 border border-slate-800 p-3">
+                    <Database size={16} className="text-amber-400 shrink-0" />
+                    <div>
+                      <div className="text-xs font-black text-white">Runway</div>
+                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                        {lang === 'en' ? 'Reserve coverage' : 'Cakupan cadangan'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div className="mt-12 pt-8 border-t border-slate-800 text-center text-xs text-slate-500 font-mono">
@@ -1878,14 +1895,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
         {/* Dynamic Interactive Modal Popup explain dialog (The requested functional Legal Popups) */}
         <AnimatePresence>
           {activeModal && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 z-55"
               style={{ zIndex: 999 }}
             >
-              <motion.div 
+              <motion.div
                 initial={{ scale: 0.95, y: 15 }}
                 animate={{ scale: 1, y: 0 }}
                 exit={{ scale: 0.95, y: 15 }}
@@ -1893,13 +1910,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
               >
                 {/* Background design elements */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-blue-100/40 rounded-full blur-xl pointer-events-none" />
-                
+
                 <h3 className="text-xl font-extrabold text-slate-950 flex items-center gap-2 border-b border-slate-100 pb-4 pr-8">
                   <Shield size={20} className="text-blue-600 shrink-0" />
                   {t.popups[activeModal].title}
                 </h3>
-                
-                <button 
+
+                <button
                   onClick={() => setActiveModal(null)}
                   className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-full transition-all"
                   aria-label="Close"
@@ -1912,7 +1929,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, lang, onToggl
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex justify-end">
-                  <button 
+                  <button
                     onClick={() => setActiveModal(null)}
                     className="px-5 py-2.5 bg-slate-900 text-white font-bold text-xs rounded-xl hover:bg-slate-800 transition-all shadow-sm"
                   >
